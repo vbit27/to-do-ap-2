@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  height: fit-content;
+  background-color: bisque;
+  text-align: center;
+  font-size: 5rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  height: 100vh;
+}
+
+.project-container {
+  background-color: rgb(195, 204, 204);
+}
+
+.tasks-container {
+  background-color: rgb(216, 236, 195);
+}
