@@ -15,15 +15,13 @@ export const submitNewProject = (name, description) =>{
 
 export const setActiveProject = (num) => {
     activeProject = num;
-    console.log(activeProject)
 }
 
 function getProject(name) {
     return allProjects.find(x => x.name == name)
 }
 
-function deleteProject(name) {
-   let index =  allProjects.indexOf(getProject(name))
+export function deleteProject(index) {
    allProjects.splice(index, 1)
 }
 

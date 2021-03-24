@@ -1,4 +1,4 @@
-import { submitNewProject, allProjects, activeProject, setActiveProject } from './Manager.js'
+import { submitNewProject, allProjects, activeProject, setActiveProject, deleteProject } from './Manager.js'
 
 
 const addProjectBtn = document.getElementById('add-project')
@@ -69,7 +69,6 @@ let projectEl;
 
 function getProjectElement(){
     projectEl = document.querySelectorAll('.single-project-container');
-    console.log(projectEl)
     setEventListenerProjects()
 };
 
@@ -93,19 +92,19 @@ function setEventListenerProjects () {
 let projectDeleteBtn
 function getDeleteProjectBtn(){
     projectDeleteBtn = document.querySelectorAll('.delete-project-btn');
-    console.log(projectDeleteBtn)
     setEventDelete()
 };
 
 
-function deleteProject() {
-    console.log(Array.from(projectDeleteBtn).indexOf(this))
-    console.log(this)
+function getIndexForDeletion() {
+    let index = Array.from(projectDeleteBtn).indexOf(this)
+    console.log(projectEl)
+    deleteProject(index)
 }
 
 function setEventDelete () {
     projectDeleteBtn.forEach(function(x) {
-        x.addEventListener('click', deleteProject)
+        x.addEventListener('click', getIndexForDeletion)
     })
 }
 
