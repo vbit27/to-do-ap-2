@@ -14,7 +14,7 @@ export const submitNewProject = (name, description) =>{
 }
 
 export const setActiveProject = (num) => {
-    activeProject = num
+    activeProject = num;
     console.log(activeProject)
 }
 

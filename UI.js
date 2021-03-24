@@ -36,16 +36,22 @@ function renderProjct() {
 
     for (let project of allProjects) {
     const singleProjectContainer = document.createElement('div');
-    singleProjectContainer.classList.add('project-element');
+    singleProjectContainer.classList.add('single-project-container');
 
     const projectTitle = document.createElement('h3')
     projectTitle.innerText = project.name;
 
+    const deleteProjectBtn = document.createElement('button');
+    deleteProjectBtn.innerText = 'X';
+    deleteProjectBtn.classList.add('delete-project-btn')
+
     singleProjectContainer.appendChild(projectTitle)
+    singleProjectContainer.appendChild(deleteProjectBtn)
     projectList.appendChild(singleProjectContainer);
     }
 
     getProjectElement();
+    getDeleteProjectBtn();
 
 }
 
@@ -62,56 +68,46 @@ let projectEl;
 
 
 function getProjectElement(){
-    projectEl = document.querySelectorAll('.project-element h3');
+    projectEl = document.querySelectorAll('.single-project-container');
+    console.log(projectEl)
     setEventListenerProjects()
 };
 
 
-function setEventListenerProjects () {
-    projectEl.forEach(function(x) {
-        x.addEventListener('click', function(e){
-            updateActiveProject(e)
-        })
-    })
-}
-
-
-
-function updateActiveProject(e) {
-    // check index of the clicked item using its content
-    const clickedElement = (element) => element.innerText === e.target.innerText;
-
-    let index = Array.from(projectEl).findIndex(clickedElement)
-
+function getIndexActiveProject() {
+    let index = Array.from(projectEl).indexOf(this)
     setActiveProject(index)
- }
+}
 
 
-
-
-/*
 function setEventListenerProjects () {
     projectEl.forEach(function(x) {
-        x.addEventListener('click', function(e){
-            updateActiveProject(e)
-        })
+        x.addEventListener('click', getIndexActiveProject)
     })
 }
 
 
-function updateActiveProject(e) {
-   let selectedProject = e.target.innerText
-   allProjects.findIndex('')
+
+// Delete a project
+
+let projectDeleteBtn
+function getDeleteProjectBtn(){
+    projectDeleteBtn = document.querySelectorAll('.delete-project-btn');
+    console.log(projectDeleteBtn)
+    setEventDelete()
+};
+
+
+function deleteProject() {
+    console.log(Array.from(projectDeleteBtn).indexOf(this))
+    console.log(this)
 }
 
-*/
-
-
-
-
-
-
-
+function setEventDelete () {
+    projectDeleteBtn.forEach(function(x) {
+        x.addEventListener('click', deleteProject)
+    })
+}
 
 
 

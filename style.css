@@ -22,8 +22,31 @@ nav {
   background-color: rgb(195, 204, 204);
 }
 
-li:hover {
-  background: coral;
+.project-container-title {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: coral;
+}
+
+.project-container-title h3 {
+  flex-grow: 6;
+}
+
+.project-container-title button {
+  flex-grow: 1;
+}
+
+.single-project-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.single-project-container h3 {
+  flex-grow: 6;
+}
+
+.single-project-container button {
+  flex-grow: 1;
 }
 
 /* Task Style */
