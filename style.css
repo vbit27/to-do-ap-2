@@ -22,4 +22,7 @@ nav {
 
 .tasks-container {
   background-color: rgb(216, 236, 195);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

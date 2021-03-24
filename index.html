@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="Manager.js" defer type ="module"></script>
-
+    <script src="UI.js" type="module" defer></script>
     <script src="Projects.js" defer type ="module"></script>
     <script src="Tasks.js" defer type ="module"></script>
     <link rel="stylesheet" href="style.css">
@@ -19,7 +19,7 @@
 <div class="grid-container">
     <div class="project-container">
         <h3>Projects</h3>
-        <button>Add</button>
+        <button id="add-project">Add</button>
         <ul>
             <li>First Project</li>
         </ul>
@@ -29,6 +29,21 @@
         <ul>
             <li>First Task</li>
         </ul>
+        <div id="submit-project-window">
+            <form action="">
+            <div>
+                <label for="pName">Title of Project</label>
+                <input type="text" id="project-name" placeholder="Title" required>
+            </div> 
+            <div>
+                <label for="pDescription"> Description of Project</label>
+                <input type="text" id="project-description" placeholder="Description" required>
+            </div>
+            <div>
+                <button id="submit-project">Add Project</button>
+            </div>
+        </div>
+        </form>
     </div>
 </div>
 </body>

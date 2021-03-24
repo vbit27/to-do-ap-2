@@ -6,7 +6,7 @@ const allProjects = []
 
 
 
-const addNewProject = (name, description) =>{
+export const submitNewProject = (name, description) =>{
     const project = new Project(name, description)
     allProjects.push(project);
 }
@@ -32,10 +32,10 @@ window.createNewTask = createNewTask
 
 //addNewTask('name', 'is', 'everything')
 
-addNewProject('another', 'one');
-addNewProject('another2', 'one');
+submitNewProject('another', 'one');
+submitNewProject('another2', 'one');
 
-addNewProject('newst', 'baby');
+submitNewProject('newst', 'baby');
 
 deleteProject('newst')
 
@@ -59,9 +59,3 @@ function render (project) {
 }
 
 
-const addProjectBtn = document.querySelector('button');
-
-addProjectBtn.addEventListener('click', addNewProject)
-
-
-window.addProjectBtn = addProjectBtn
