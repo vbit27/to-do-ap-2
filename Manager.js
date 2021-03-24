@@ -13,7 +13,7 @@ export const submitNewProject = (name, description) =>{
     setActiveProject(allProjects.length - 1);
 }
 
-export const setActiveProject = (num) => {
+export const setActiveProject = (num = 0) => {
     activeProject = num;
 }
 

@@ -64,23 +64,29 @@ function clearProjects() {
 
 // Set Active Project
 
-let projectEl;
+let allAddedProjects;
+let projectDeleteBtn;
+
 
 
 function getProjectElement(){
-    projectEl = document.querySelectorAll('.single-project-container');
+    allAddedProjects = document.querySelectorAll('#project-list div')
+    projectDeleteBtn = document.querySelectorAll('.delete-project-btn');
+
     setEventListenerProjects()
+    setEventDelete()
 };
 
 
 function getIndexActiveProject() {
-    let index = Array.from(projectEl).indexOf(this)
+    let index = Array.from(allAddedProjects).indexOf(this)
+    console.log(index)
     setActiveProject(index)
 }
 
 
 function setEventListenerProjects () {
-    projectEl.forEach(function(x) {
+    allAddedProjects.forEach(function(x) {
         x.addEventListener('click', getIndexActiveProject)
     })
 }
@@ -89,22 +95,18 @@ function setEventListenerProjects () {
 
 // Delete a project
 
-let projectDeleteBtn
-function getDeleteProjectBtn(){
-    projectDeleteBtn = document.querySelectorAll('.delete-project-btn');
-    setEventDelete()
-};
 
 
-function getIndexForDeletion() {
+function removeProject() {
     let index = Array.from(projectDeleteBtn).indexOf(this)
-    console.log(projectEl)
+    this.parentNode.remove()
     deleteProject(index)
+    setActiveProject()
 }
 
 function setEventDelete () {
     projectDeleteBtn.forEach(function(x) {
-        x.addEventListener('click', getIndexForDeletion)
+        x.addEventListener('click', removeProject)
     })
 }
 
