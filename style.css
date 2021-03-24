@@ -16,9 +16,17 @@ nav {
   height: 100vh;
 }
 
+/* Project style */
+
 .project-container {
   background-color: rgb(195, 204, 204);
 }
+
+li:hover {
+  background: coral;
+}
+
+/* Task Style */
 
 .tasks-container {
   background-color: rgb(216, 236, 195);

@@ -3,14 +3,20 @@ import { Task } from './Tasks.js'
 
 
 export const allProjects = []
+export let activeProject = 0;
 
 
 
 export const submitNewProject = (name, description) =>{
     const project = new Project(name, description)
     allProjects.push(project);
+    setActiveProject(allProjects.length - 1);
 }
 
+export const setActiveProject = (num) => {
+    activeProject = num
+    console.log(activeProject)
+}
 
 function getProject(name) {
     return allProjects.find(x => x.name == name)
@@ -30,14 +36,13 @@ function createNewTask(name, description, dueDate, priority) {
 window.allProjects = allProjects;
 window.createNewTask = createNewTask
 
-//addNewTask('name', 'is', 'everything')
 
-submitNewProject('another', 'one');
-submitNewProject('another2', 'one');
+//submitNewProject('another', 'one');
+//submitNewProject('another2', 'one');
 
-submitNewProject('newst', 'baby');
+//submitNewProject('newst', 'baby');
 
-deleteProject('newst')
+//deleteProject('newst')
 
 for (let projects of allProjects) {
     render(projects)
