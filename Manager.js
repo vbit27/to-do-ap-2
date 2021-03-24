@@ -2,7 +2,7 @@ import { Project } from './Projects.js'
 import { Task } from './Tasks.js'
 
 
-const allProjects = []
+export const allProjects = []
 
 
 
