@@ -6,6 +6,7 @@ export class Project  {
         this.name = name;
         this.description = description;
         this.tasks = [];
+        this.tasksDone = [];
     }
 
     getName() {

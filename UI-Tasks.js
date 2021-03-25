@@ -82,6 +82,7 @@ function renderTasks(index) {
 
             const taskTitle = document.createElement('div')
             taskTitle.innerText = task.name
+            console.log(this)
 
             singleTask.appendChild(circle)
             singleTask.appendChild(taskTitle)
