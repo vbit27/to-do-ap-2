@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="Manager.js" defer type ="module"></script>
-    <script src="UI.js" type="module" defer></script>
+    <script src="UI-Project.js" type="module" defer></script>
+    <script src="UI-Tasks.js" type="module" defer></script>
     <script src="Projects.js" defer type ="module"></script>
     <script src="Tasks.js" defer type ="module"></script>
     <link rel="stylesheet" href="style.css">
@@ -22,7 +23,6 @@
             <h3>Projects</h3>
             <button id="add-project">Add</button>
         </div>
-
         <div id="project-list">
             <div>
                 <h3>My First Project</h3>
@@ -33,6 +33,12 @@
         </div>
     </div>
     <div class="tasks-container">
+        <div class="active-project-container">
+            <div class="active-project-description">
+                <h3>This is a project</h3>
+                <h5>this is a description</h5>
+            </div>
+        </div>
         <h3>Tasks</h3>
         <ul>
             <li>First Task</li>

@@ -1,5 +1,5 @@
 import { submitNewProject, allProjects, activeProject, setActiveProject, deleteProject } from './Manager.js'
-
+import { updateActiveProject } from './UI-Tasks.js'
 
 const addProjectBtn = document.getElementById('add-project')
 const submitProjectBtn = document.getElementById('submit-project')
@@ -32,7 +32,7 @@ const submitProject = (ev) => {
 // Render projects inside container
 
 function renderProjct() {
-    clearProjects()
+    projectList.innerHTML = '';
 
     for (let project of allProjects) {
     const singleProjectContainer = document.createElement('div');
@@ -51,15 +51,8 @@ function renderProjct() {
     }
 
     getProjectElement();
-    getDeleteProjectBtn();
-
 }
 
-// Clear Project list 
-
-function clearProjects() {
-    projectList.innerHTML = '';
-}
 
 
 // Set Active Project
@@ -70,18 +63,20 @@ let projectDeleteBtn;
 
 
 function getProjectElement(){
-    allAddedProjects = document.querySelectorAll('#project-list div')
+    allAddedProjects = document.querySelectorAll('#project-list h3')
     projectDeleteBtn = document.querySelectorAll('.delete-project-btn');
 
     setEventListenerProjects()
     setEventDelete()
+    updateActiveProject(activeProject);
+
 };
 
 
 function getIndexActiveProject() {
     let index = Array.from(allAddedProjects).indexOf(this)
-    console.log(index)
     setActiveProject(index)
+    updateActiveProject(activeProject)
 }
 
 
@@ -96,12 +91,13 @@ function setEventListenerProjects () {
 // Delete a project
 
 
-
 function removeProject() {
     let index = Array.from(projectDeleteBtn).indexOf(this)
     this.parentNode.remove()
-    deleteProject(index)
+    deleteProject(index);
     setActiveProject()
+    console.log(activeProject)
+    updateActiveProject(activeProject);
 }
 
 function setEventDelete () {

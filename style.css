@@ -51,6 +51,12 @@ nav {
 
 /* Task Style */
 
+.active-project-container {
+  display: flex;
+  direction: row;
+  background-color: rgb(227, 197, 255);
+}
+
 .tasks-container {
   background-color: rgb(216, 236, 195);
   display: flex;
