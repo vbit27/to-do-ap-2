@@ -1,5 +1,6 @@
 import { Project } from './Projects.js'
 import { Task } from './Tasks.js'
+import { updateActiveProject } from './UI-Tasks.js'
 
 
 export const allProjects = []
@@ -15,6 +16,8 @@ export const submitNewProject = (name, description) =>{
 
 export const setActiveProject = (num = 0) => {
     activeProject = num;
+    updateActiveProject(num)
+
 }
 
 function getProject(name) {
@@ -25,40 +28,14 @@ export function deleteProject(index) {
    allProjects.splice(index, 1)
 }
 
-function createNewTask(name, description, dueDate, priority) {
+export function createNewTask(name, description, dueDate, priority) {
     const task = new Task (name, description, dueDate, priority)
-    this.addTask(task);
+    allProjects[activeProject].addTask(task);
 }
 
 
 window.allProjects = allProjects;
 window.createNewTask = createNewTask
 
-
-//submitNewProject('another', 'one');
-//submitNewProject('another2', 'one');
-
-//submitNewProject('newst', 'baby');
-
-//deleteProject('newst')
-
-for (let projects of allProjects) {
-    render(projects)
-}
-
-function render (project) {
-    var h2 = document.createElement('h2'), markup ='';
-
-    markup += `<a>`
-    markup += project.name;
-    markup += '</a>';
-
-    h2.innerHTML = markup;
-
-    h2.querySelector('a').addEventListener('click', createNewTask.bind(project))
-
-    document.body.appendChild(h2)
-
-}
 
 

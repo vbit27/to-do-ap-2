@@ -16,21 +16,13 @@
     To-Do-List
 </nav>
     
-
 <div class="grid-container">
     <div class="project-container">
         <div class="project-container-title">
             <h3>Projects</h3>
             <button id="add-project">Add</button>
         </div>
-        <div id="project-list">
-            <div>
-                <h3>My First Project</h3>
-            </div>
-            <div>
-                <h3>My First Project2</h3>
-            </div>
-        </div>
+        <div id="project-list"></div>
     </div>
     <div class="tasks-container">
         <div class="active-project-container">
@@ -38,11 +30,15 @@
                 <h3>This is a project</h3>
                 <h5>this is a description</h5>
             </div>
+            <button class="add-task">Add Task</button>
         </div>
         <h3>Tasks</h3>
-        <ul>
-            <li>First Task</li>
-        </ul>
+        <div class="task-list-container">
+            <div class="task">
+                <span class="dot"></span>
+                <div>I am a taks to be done</div>
+            </div>
+        </div>
         <div id="submit-project-window" class="">
             <form action="">
             <div>
@@ -56,7 +52,34 @@
             <div>
                 <button id="submit-project">Add Project</button>
             </div>
-        </form>
+            </form>
+        </div>
+        <div id="submit-task-window" class="">
+            <form action="">
+            <div>
+                <label for="tName">Title of Task</label>
+                <input type="text" id="task-name" placeholder="Title" >
+            </div> 
+            <div>
+                <label for="tDescription"> Description of Task</label>
+                <input type="text" id="task-description" placeholder="Description" >
+            </div>
+            <div>
+                <label for="tdueDate">Due date</label>
+                <input type="date" id="task-due-date" >
+            </div>
+            <div>
+                <label for="tPriority">Priority</label>
+                <input list="priority-value" id="priority">
+                <datalist id="priority-value">
+                    <option value = "High">
+                    <option value="Low">
+                </datalist>
+            </div>
+            <div>
+                <button id="submit-task">Add Task</button>
+            </div>
+            </form>
         </div>
     </div>
 </div>

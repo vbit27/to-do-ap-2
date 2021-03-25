@@ -63,3 +63,25 @@ nav {
   flex-direction: column;
   align-items: center;
 }
+
+#submit-task-window {
+  margin: 30px;
+  background-color: rgb(180, 206, 207);
+}
+
+/* Single task style */
+
+.task {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px 30px;
+  background-color: pink;
+}
+
+.dot {
+  height: 13px;
+  width: 13px;
+  border: 1px solid grey;
+  border-radius: 50%;
+  display: inline-block;
+}

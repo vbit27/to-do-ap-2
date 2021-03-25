@@ -17,6 +17,8 @@ function toggleAddProject() {
 // Submit a new project
 
 const submitProject = (ev) => {  
+    ev.preventDefault();
+    
     const name = document.getElementById('project-name').value;
     const description = document.getElementById('project-description').value;
 
@@ -65,10 +67,8 @@ let projectDeleteBtn;
 function getProjectElement(){
     allAddedProjects = document.querySelectorAll('#project-list h3')
     projectDeleteBtn = document.querySelectorAll('.delete-project-btn');
-
     setEventListenerProjects()
     setEventDelete()
-    updateActiveProject(activeProject);
 
 };
 
@@ -76,7 +76,6 @@ function getProjectElement(){
 function getIndexActiveProject() {
     let index = Array.from(allAddedProjects).indexOf(this)
     setActiveProject(index)
-    updateActiveProject(activeProject)
 }
 
 
@@ -96,8 +95,7 @@ function removeProject() {
     this.parentNode.remove()
     deleteProject(index);
     setActiveProject()
-    console.log(activeProject)
-    updateActiveProject(activeProject);
+    renderProjct()
 }
 
 function setEventDelete () {
