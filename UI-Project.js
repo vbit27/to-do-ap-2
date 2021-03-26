@@ -52,59 +52,35 @@ function renderProjct() {
     projectList.appendChild(singleProjectContainer);
     }
 
-    getProjectElement();
+    setListenersToProject();
 }
 
 
 
-// Set Active Project
+// ADD PROJECT FUNCTIONALITIES 
 
-let allAddedProjects;
-let projectDeleteBtn;
+function setListenersToProject(){
+    const projectElements = document.querySelectorAll('.single-project-container h3')
+    const deleteProjectBtn = document.querySelectorAll('.delete-project-btn');
 
+    function removeProject() {
+        let index = Array.from(deleteProjectBtn).indexOf(this)
+        this.parentNode.remove()
+        
+        deleteProject(index);
+        setActiveProject()
+        renderProjct()
+    }
 
+    // update active project after being clicked
+    function updateActiveProject() {
+        let index = Array.from(projectElements).indexOf(this)
+        setActiveProject(index)
+    }
 
-function getProjectElement(){
-    allAddedProjects = document.querySelectorAll('#project-list h3')
-    projectDeleteBtn = document.querySelectorAll('.delete-project-btn');
-    setEventListenerProjects()
-    setEventDelete()
-
+    projectElements.forEach(x => x.addEventListener('click', updateActiveProject))
+    deleteProjectBtn.forEach(x => x.addEventListener('click', removeProject))
 };
-
-
-function getIndexActiveProject() {
-    let index = Array.from(allAddedProjects).indexOf(this)
-    setActiveProject(index)
-}
-
-
-function setEventListenerProjects () {
-    allAddedProjects.forEach(function(x) {
-        x.addEventListener('click', getIndexActiveProject)
-    })
-}
-
-
-
-// Delete a project
-
-
-function removeProject() {
-    let index = Array.from(projectDeleteBtn).indexOf(this)
-    this.parentNode.remove()
-    deleteProject(index);
-    setActiveProject()
-    renderProjct()
-}
-
-function setEventDelete () {
-    projectDeleteBtn.forEach(function(x) {
-        x.addEventListener('click', removeProject)
-    })
-}
-
-
 
 
 submitProjectBtn.addEventListener('click', submitProject)

@@ -17,7 +17,6 @@ export const submitNewProject = (name, description) =>{
 export const setActiveProject = (num = 0) => {
     activeProject = num;
     updateActiveProject(num)
-
 }
 
 function getProject(name) {

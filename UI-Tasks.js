@@ -11,7 +11,9 @@ export function updateActiveProject(index) {
 }
 
 
-// Update title of current project above tasks
+
+
+//  UPDATE CURRENT PROJECT TITLE ABOVE TASKS
 
 const updateProjectTitle = (index) => {
     const activeProjectDetails = document.querySelector('.active-project-description')
@@ -35,12 +37,9 @@ const updateProjectTitle = (index) => {
 
 const addTaskButton = document.querySelector('.add-task');
 
-addTaskButton.addEventListener('click', addNewTask)
+//addTaskButton.addEventListener('click', addNewTask)
 
 
-function addNewTask() {
-
-}
 
 
 
@@ -75,56 +74,58 @@ function renderTasks(index) {
     const taskContainer = document.querySelector('.task-list-container')
     taskContainer.innerHTML = '';
 
-    if(allProjects[index].tasks.length) {
-        for (let task of allProjects[index].tasks) {
-            const singleTask = document.createElement('div')
-            const circle = document.createElement('span')
-            const taskTitle = document.createElement('div')
-            const editTaskBtn = document.createElement('button')
-            const deleteTaskBtn = document.createElement('button')
+        if(allProjects.length && allProjects[index].tasks.length) {
+            for (let task of allProjects[index].tasks) {
+                const singleTask = document.createElement('div')
+                const circle = document.createElement('span')
+                const taskTitle = document.createElement('div')
+                const editTaskBtn = document.createElement('button')
+                const deleteTaskBtn = document.createElement('button')
 
+                singleTask.classList.add('task')
+                circle.classList.add('dot')
+                taskTitle.innerText = task.name
+                editTaskBtn.innerText = 'Edit';
+                editTaskBtn.classList.add('edit-task')
+                deleteTaskBtn.innerText = 'X';
+                deleteTaskBtn.classList.add('delete-task')
 
-            singleTask.classList.add('task')
-            circle.classList.add('dot')
-            taskTitle.innerText = task.name
-            editTaskBtn.innerText = 'Edit';
-            editTaskBtn.classList.add('edit-task')
-            deleteTaskBtn.innerText = 'X';
-            deleteTaskBtn.classList.add('delete-task')
-
-
-            singleTask.appendChild(circle)
-            singleTask.appendChild(taskTitle)
-            singleTask.appendChild(editTaskBtn)
-            singleTask.appendChild(deleteTaskBtn)
-            taskContainer.appendChild(singleTask)
+                singleTask.appendChild(circle)
+                singleTask.appendChild(taskTitle)
+                singleTask.appendChild(editTaskBtn)
+                singleTask.appendChild(deleteTaskBtn)
+                taskContainer.appendChild(singleTask)
+            }
         }
-    }
 
 }
 
+
+// ADD TASK FUNCTIONALITIES 
+
 function setListenersToTaks() {
-    const taskList = document.querySelectorAll('.task-list-container .task')
+    const taskElements = document.querySelectorAll('.task-list-container .task')
     const deleteTaskBtn = document.querySelectorAll('.delete-task')
     const editTaskBtn = document.querySelectorAll('.edit-task')
 
 
-    deleteTaskBtn.forEach(element => element.addEventListener('click', deleteTask))
-    taskList.forEach(element => element.addEventListener('click', updateTaskStatus))
+    function removeTask() {
+        this.parentNode.remove()
+    
+        let index = Array.from(deleteTaskBtn).indexOf(this)
+        allProjects[activeProject].removeTask(index)
+    
+        renderTasks(activeProject)
+        setListenersToTaks()
+    }
+    
+    function updateTaskStatus() {
+        let index = Array.from(taskElements).indexOf(this)
+        allProjects[activeProject].tasks[index].setStatus()
+    }
+
+
+    deleteTaskBtn.forEach(element => element.addEventListener('click', removeTask))
+    taskElements.forEach(element => element.addEventListener('click', updateTaskStatus))
 }
 
-
-function deleteTask() {
-    this.parentNode.remove()
-
-    let index = Array.from(deleteTaskBtn).indexOf(this)
-    allProjects[activeProject].deleteTask(index)
-
-    renderTasks(activeProject)
-    setListenersToTaks()
-}
-
-function updateTaskStatus() {
-    let index = Array.from(taskList).indexOf(this)
-    allProjects[activeProject].tasks[index].setStatus()
-}
