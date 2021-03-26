@@ -5,12 +5,18 @@ const addProjectBtn = document.getElementById('add-project')
 const submitProjectBtn = document.getElementById('submit-project')
 const projectList = document.getElementById('project-list');
 
+const submitProjectWindow = document.querySelector('.submit-project-window')
+
+addProjectBtn.addEventListener('click', toggleSubmitProjectWindow)
+
+console.log(submitProjectWindow)
 
 
 // Add Project toggle window
 
-function toggleAddProject() {
-    document.getElementById('submit-project-window').classList.toggle('visible')
+function toggleSubmitProjectWindow() {
+    submitProjectWindow.classList.toggle('visible');
+
 }
 
 
@@ -27,6 +33,7 @@ const submitProject = (ev) => {
     document.forms[0].reset();
     }
 
+    toggleSubmitProjectWindow()
     renderProjct();
 }
 
@@ -84,4 +91,3 @@ function setListenersToProject(){
 
 
 submitProjectBtn.addEventListener('click', submitProject)
-addProjectBtn.addEventListener('click', toggleAddProject)

@@ -16,6 +16,16 @@ nav {
   height: 100vh;
 }
 
+/* POP UP ADD PROJECT */
+
+.submit-project-window {
+  display: none;
+}
+
+.submit-project-window.visible {
+  display: block;
+}
+
 /* Project style */
 
 .project-container {

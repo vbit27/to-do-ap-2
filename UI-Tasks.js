@@ -70,14 +70,16 @@ function renderTasks(index) {
             const singleTask = document.createElement('div')
             const titleContainer = document.createElement('div')
             const circle = document.createElement('span')
-            const taskTitle = document.createElement('div')
+            const taskTitle = document.createElement('h5')
+            const taskDueDate = document.createElement('h6')
             const editTaskBtn = document.createElement('button')
             const deleteTaskBtn = document.createElement('button')
 
             singleTask.classList.add('task')
             titleContainer.classList.add('task-title-container')
             circle.classList.add('dot')
-            taskTitle.innerText = task.name
+            taskTitle.innerText = task.name;
+            taskDueDate.innerText = task.dueDate;
             editTaskBtn.innerText = 'Edit';
             editTaskBtn.classList.add('edit-task')
             deleteTaskBtn.innerText = 'X';
@@ -85,6 +87,7 @@ function renderTasks(index) {
 
             titleContainer.appendChild(circle)
             titleContainer.appendChild(taskTitle)
+            titleContainer.appendChild(taskDueDate)
             singleTask.appendChild(titleContainer)
             singleTask.appendChild(editTaskBtn)
             singleTask.appendChild(deleteTaskBtn)
