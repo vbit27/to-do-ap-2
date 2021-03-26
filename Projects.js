@@ -33,9 +33,8 @@ export class Project  {
         return this.tasks.find(x = x.getName() === taskName)
     }
 
-    deleteTask(name) {
-        const taskToDelete = getTask(name)
-        this.tasks.splice(this.tasks.indexOf(taskToDelete), 1)
+    deleteTask(index) {
+        this.tasks.splice(index, 1)
     }
 }
 
