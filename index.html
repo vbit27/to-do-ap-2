@@ -78,6 +78,33 @@
             </div>
             </form>
         </div>
+        <div id="edit-task-window" class="">
+            <form action="">
+            <div>
+                <label for="tName">Title of Task</label>
+                <input type="text" id="edit-task-name" placeholder="Title">
+            </div> 
+            <div>
+                <label for="tDescription"> Description of Task</label>
+                <input type="text" id="edit-task-description" placeholder="Description">
+            </div>
+            <div>
+                <label for="tdueDate">Due date</label>
+                <input type="date" id="edit-task-due-date">
+            </div>
+            <div>
+                <label for="tPriority">Priority</label>
+                <input list="priority-value" id="edit-priority">
+                <datalist id="priority-value">
+                    <option value="High">
+                    </option><option value="Low">
+                </option></datalist>
+            </div>
+            <div>
+                <button id="edit-task">Add Task</button>
+            </div>
+            </form>
+        </div>
     </div>
 </div>
 </body>

@@ -27,6 +27,10 @@ export class Task {
         this.description = text;
     }
 
+    setDueDate(text) {
+        this.dueDate = text;
+    }
+
     setPriority(text){
         this.priority = text;
     }

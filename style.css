@@ -80,6 +80,7 @@ nav {
   display: flex;
   direction: row;
   background-color: rgb(227, 197, 255);
+  width: 100%;
 }
 
 .task-list-container {
@@ -119,4 +120,12 @@ nav {
   border: 1px solid grey;
   border-radius: 50%;
   display: inline-block;
+}
+
+#edit-task-window {
+  display: none;
+}
+
+#edit-task-window.visible {
+  display: block;
 }

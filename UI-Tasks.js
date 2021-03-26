@@ -61,7 +61,6 @@ function submitTask(ev) {
     const dueDate = document.getElementById('task-due-date').value;
     const priority = document.getElementById('priority').value;
 
-    
     createNewTask(name, description, dueDate, priority)
     renderTasks(activeProject)
     toggleAddTaskWindow()
@@ -115,28 +114,65 @@ function renderTasks(index) {
 
 // ADD TASK FUNCTIONALITIES 
 
+
 function setListenersToTaks() {
     
-    const taskElements = document.querySelectorAll('.task-title-container')
-    const deleteTaskBtn = document.querySelectorAll('.delete-task')
-    const editTaskBtn = document.querySelectorAll('.edit-task')
+    const taskElements = document.querySelectorAll('.task-title-container');
+    const deleteTaskBtn = document.querySelectorAll('.delete-task');
+    const editTaskBtn = document.querySelector('.edit-task');
+    const editTaskWindow = document.getElementById('edit-task-window');
+    const submitEditBtn = document.getElementById('edit-task');
+
+    console.log(editTaskBtn)
+    console.log(editTaskWindow)
+
+    // get index of current task
+    let index = Array.from(deleteTaskBtn).indexOf(this)
+    console.log(allProjects[activeProject].tasks[index])
 
 
     function removeTask() {
         this.parentNode.remove()
 
-        let index = Array.from(deleteTaskBtn).indexOf(this)
         allProjects[activeProject].deleteTask(index)
 
         renderTasks(activeProject)
     }
     
     function updateTaskStatus() {
-        let index = Array.from(taskElements).indexOf(this)
         allProjects[activeProject].tasks[index].setStatus()
     }
 
 
+    // EDIT TASK
+
+    function editTask(ev) {
+        ev.preventDefault();
+
+        const name = document.getElementById('edit-task-name').value;
+        const description = document.getElementById('edit-task-description').value;
+        const dueDate = document.getElementById('edit-task-due-date').value;
+        const priority = document.getElementById('edit-priority').value;
+
+        allProjects[activeProject].tasks[index]
+                .setName(name)
+                .setDescription(description)
+                .setDueDate(dueDate)
+                .setPriority(priority)
+
+
+        renderTasks(activeProject)
+        toggleAddTaskWindow()
+    }
+
+
+    function toggleEditTaskWindow() {
+        editTaskWindow.classList.toggle('visible')
+    }
+
+
+    submitEditBtn.addEventListener('click', editTask)
+    editTaskBtn.addEventListener('click', toggleEditTaskWindow)
     deleteTaskBtn.forEach(element => element.addEventListener('click', removeTask))
     taskElements.forEach(element => element.addEventListener('click', updateTaskStatus))
 }
