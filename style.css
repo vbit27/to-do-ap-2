@@ -16,13 +16,21 @@ nav {
   height: 100vh;
 }
 
-/* POP UP ADD PROJECT */
+/* POP UP WINDOWS */
 
 .submit-project-window {
   display: none;
 }
 
 .submit-project-window.visible {
+  display: block;
+}
+
+#submit-task-window {
+  display: none;
+}
+
+#submit-task-window.visible {
   display: block;
 }
 
@@ -61,17 +69,23 @@ nav {
 
 /* Task Style */
 
+.tasks-container {
+  background-color: rgb(216, 236, 195);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .active-project-container {
   display: flex;
   direction: row;
   background-color: rgb(227, 197, 255);
 }
 
-.tasks-container {
-  background-color: rgb(216, 236, 195);
+.task-list-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  width: 70%;
 }
 
 #submit-task-window {
@@ -81,16 +95,27 @@ nav {
 
 /* Single task style */
 
-.task {
+.single-task-container {
   display: flex;
-  flex-wrap: wrap;
-  margin: 30px 30px;
   background-color: pink;
+  width: 100%;
+}
+
+.task-title-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.task-title-container h5 {
+  padding-left: 1rem;
+  flex: 1;
 }
 
 .dot {
   height: 13px;
   width: 13px;
+  margin-left: 0.7rem;
   border: 1px solid grey;
   border-radius: 50%;
   display: inline-block;

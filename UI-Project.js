@@ -1,24 +1,24 @@
 import { submitNewProject, allProjects, activeProject, setActiveProject, deleteProject } from './Manager.js'
 import { updateActiveProject } from './UI-Tasks.js'
 
-const addProjectBtn = document.getElementById('add-project')
 const submitProjectBtn = document.getElementById('submit-project')
 const projectList = document.getElementById('project-list');
 
-const submitProjectWindow = document.querySelector('.submit-project-window')
 
-addProjectBtn.addEventListener('click', toggleSubmitProjectWindow)
-
-console.log(submitProjectWindow)
 
 
 // Add Project toggle window
+
+const addProjectBtn = document.getElementById('add-project')
+const submitProjectWindow = document.querySelector('.submit-project-window')
+
 
 function toggleSubmitProjectWindow() {
     submitProjectWindow.classList.toggle('visible');
 
 }
 
+addProjectBtn.addEventListener('click', toggleSubmitProjectWindow)
 
 // Submit a new project
 

@@ -1,6 +1,21 @@
 
 import { activeProject, allProjects, createNewTask } from './Manager.js'
 
+// TOGGLE ADD TASK WINDOW
+
+const addTaskButton = document.querySelector('.add-task');
+const addTaskWindow = document.getElementById('submit-task-window');
+
+function toggleAddTaskWindow() {
+    if (allProjects.length) {
+    addTaskWindow.classList.toggle('visible');
+    } else alert('Please add a project first')
+}
+
+addTaskButton.addEventListener('click', toggleAddTaskWindow)
+
+
+
 // Set active project title and description
 
 export function updateActiveProject(index) {
@@ -30,9 +45,6 @@ const updateProjectTitle = (index) => {
     }
 }
 
-const addTaskButton = document.querySelector('.add-task');
-
-//addTaskButton.addEventListener('click', addNewTask)
 
 
 
@@ -52,6 +64,7 @@ function submitTask(ev) {
     
     createNewTask(name, description, dueDate, priority)
     renderTasks(activeProject)
+    toggleAddTaskWindow()
 }
 
 
@@ -75,7 +88,7 @@ function renderTasks(index) {
             const editTaskBtn = document.createElement('button')
             const deleteTaskBtn = document.createElement('button')
 
-            singleTask.classList.add('task')
+            singleTask.classList.add('single-task-container')
             titleContainer.classList.add('task-title-container')
             circle.classList.add('dot')
             taskTitle.innerText = task.name;
