@@ -19,20 +19,11 @@ export class Task {
        return this.priority;
     }
 
-    setName(text) {
-        this.name = text;
-    }
-
-    setDescription(text){
-        this.description = text;
-    }
-
-    setDueDate(text) {
-        this.dueDate = text;
-    }
-
-    setPriority(text){
-        this.priority = text;
+    setProperties(name, description, dueDate, priority) {
+        this.name = name;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.priority = priority;
     }
 
     setStatus() {

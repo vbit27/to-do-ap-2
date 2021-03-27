@@ -48,7 +48,7 @@ const updateProjectTitle = (index) => {
 
 
 
-// Submit new task
+// SUBMIT NEW TASK
 
 const submitTaskButton = document.getElementById('submit-task');
 
@@ -158,17 +158,16 @@ function setListenersToTaks() {
             const dueDate = document.getElementById('edit-task-due-date').value;
             const priority = document.getElementById('edit-priority').value;
             
-            allProjects[activeProject].tasks[index].setName(name)
-            allProjects[activeProject].tasks[index].setDescription(description)
-            allProjects[activeProject].tasks[index].setDueDate(dueDate)
-            allProjects[activeProject].tasks[index].setPriority(priority)
-    
+            allProjects[activeProject].tasks[index].setProperties(name, description, dueDate, priority)
+
             renderTasks(activeProject)
             editTaskWindow.classList.remove('visible')
         }
 
         submitEditBtn.addEventListener('click', editTask)
     }
+
+
 
 
     function toggleEditTaskWindow() {
@@ -180,5 +179,7 @@ function setListenersToTaks() {
     editTaskBtn.forEach(element => element.addEventListener('click', editTaskInit))
     deleteTaskBtn.forEach(element => element.addEventListener('click', removeTask))
     taskTitleElements.forEach(element => element.addEventListener('click', updateTaskStatus))
+
+
 }
 
