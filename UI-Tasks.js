@@ -168,8 +168,6 @@ function setListenersToTaks() {
     }
 
 
-
-
     function toggleEditTaskWindow() {
         editTaskWindow.classList.toggle('visible')
     }
@@ -179,7 +177,6 @@ function setListenersToTaks() {
     editTaskBtn.forEach(element => element.addEventListener('click', editTaskInit))
     deleteTaskBtn.forEach(element => element.addEventListener('click', removeTask))
     taskTitleElements.forEach(element => element.addEventListener('click', updateTaskStatus))
-
 
 }
 

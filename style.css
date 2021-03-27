@@ -1,13 +1,19 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #fafafa;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 nav {
+  padding: 1rem 0;
+  font-family: Arial;
+  font-size: 3vw;
+  letter-spacing: 0.1rem;
+  background-color: #73a780;
+  color: #ffffff;
   height: fit-content;
-  background-color: bisque;
   text-align: center;
-  font-size: 5rem;
 }
 
 .grid-container {
@@ -36,14 +42,22 @@ nav {
 
 /* Project style */
 
+#add-project {
+  width: 30%;
+  border: none;
+  border-radius: 10%;
+  margin: 0.2rem;
+  background: #fa994d;
+  color: white;
+}
+
 .project-container {
-  background-color: rgb(195, 204, 204);
+  background-color: rgb(255, 255, 255);
 }
 
 .project-container-title {
   display: flex;
   flex-wrap: wrap;
-  background-color: coral;
 }
 
 .project-container-title h3 {
